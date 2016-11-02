@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ByMe.View.UserView.UserCart" BackgroundColor="White" Padding="10">
+
+  <StackLayout>
+    <StackLayout Orientation="Horizontal">
+    <Label Text="Cart SubTotal" FontAttributes="Bold" TextColor="Black" FontSize="15"></Label>
+      <Label Text="(" FontAttributes="Bold"  TextColor="Black"  FontSize="15"></Label>
+      <Label Text="{Binding Totalqty}" FontAttributes="Bold"  TextColor="Black"  FontSize="15"></Label>
+      <Label Text="items ):" FontAttributes="Bold"  TextColor="Black"  FontSize="15"></Label>
+      <Label Text="₹" TextColor="Red" ></Label>
+      <Label Text="{Binding TotalPrice}" FontAttributes="Bold"  TextColor="Red"  FontSize="15"></Label>
+     
+    </StackLayout>
+    <Button Text="Proceed to Checkout" Clicked="proceedToCheckout" BackgroundColor="#2DCA71" HorizontalOptions="FillAndExpand"></Button>
+    <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" Color="Black"></BoxView>
+    <StackLayout Padding="0,10,0,0">
+    <ListView x:Name="menuOption" ItemsSource="{Binding UCartList}" BackgroundColor="White" RowHeight="120" >
+    <ListView.ItemTemplate>
+      <DataTemplate >
+        <ViewCell>
+          <StackLayout>
+          <StackLayout Orientation="Horizontal" >
+            <Image Source="{Binding ProductImage}"  WidthRequest="60" HeightRequest="60"></Image>
+            <StackLayout Padding="0,0,0,0" Orientation="Vertical"  VerticalOptions="FillAndExpand">
+              <Label Text="{Binding Name}" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center"/>
+            <StackLayout Orientation="Horizontal">
+              <Label Text="₹" TextColor="Red" ></Label>
+              <Label Text="{Binding Price}" TextColor="Red" FontAttributes="Italic" VerticalOptions="End"/>
+              </StackLayout>
+            </StackLayout>
+          </StackLayout>
+            <StackLayout Orientation="Horizontal">
+              <Label Text="Quantity:" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center"/>
+              <Label Text="1" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" ></Label>
+              <Button Command="{Binding BindingContext.DeleteCommand, Source={x:Reference menuOption}}" CommandParameter="{Binding .}"  Image="delete.png" Text="Delete" FontSize="10" BackgroundColor="#2DCA71" HeightRequest="35" ></Button>
+            </StackLayout>       
+          </StackLayout>
+
+        </ViewCell>
+
+      </DataTemplate>
+    </ListView.ItemTemplate>
+
+  </ListView>
+    </StackLayout>
+  </StackLayout>
+</ContentPage>

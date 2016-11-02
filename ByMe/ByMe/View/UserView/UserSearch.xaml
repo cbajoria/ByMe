@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ByMe.View.UserView.UserSearch" BackgroundColor="White" NavigationPage.HasNavigationBar="false">
+  <StackLayout>
+    <StackLayout BackgroundColor="#2DCA71" HeightRequest="60"  Orientation="Horizontal"  VerticalOptions="Start">
+    <Button Clicked="goBack" Image="back.png" BackgroundColor="Transparent" WidthRequest="40"></Button>
+    <SearchBar x:Name="txtSearchBar" SearchButtonPressed="searchTextChanged" CancelButtonColor="White" Placeholder="Enter item to search" PlaceholderColor="White" ></SearchBar>
+      <Button x:Name="MyOrder" Image="shoppingcart.png"  Clicked="cart_Clicked" BackgroundColor="Transparent"/>
+      <Label Text="{Binding CartCount}" TextColor="White"></Label>
+    </StackLayout>
+    
+  <ListView x:Name="menuOption" ItemsSource="{Binding PList}" ItemTapped="itemTapped"   RowHeight="125">
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <StackLayout Orientation="Horizontal" >
+            <Image Source="{Binding ProductImage}" WidthRequest="125" HeightRequest="120" Aspect="AspectFit"></Image>
+            <StackLayout Padding="0,10,0,0" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+              <Label Text="{Binding Name}" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center"/>
+              <StackLayout Orientation="Horizontal">
+                <Label Text="₹" TextColor="Maroon" ></Label>
+                <Label Text="{Binding Price}" TextColor="Maroon" FontAttributes="Bold" FontSize="15" VerticalOptions="End"/>
+              </StackLayout>
+            </StackLayout>
+           <StackLayout Padding="0,30,0,0" Orientation="Vertical"  HorizontalOptions="End" VerticalOptions="FillAndExpand">
+              <Button Text="ADD" Command="{Binding BindingContext.AddCommand, Source={x:Reference menuOption}}" CommandParameter="{Binding .}" BackgroundColor="#2DCA71" Image="cart.png" VerticalOptions="Center" ></Button>
+            </StackLayout>
+          </StackLayout>
+
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+  </ListView>
+  </StackLayout>
+
+</ContentPage>

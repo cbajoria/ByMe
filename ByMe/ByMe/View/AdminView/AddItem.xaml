@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ByMe.View.AdminView.AddItem" BackgroundColor="White">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <Style TargetType="Entry">
+        <Style.Triggers>
+          <Trigger TargetType="Entry" Property="IsFocused" Value="True">
+            <Setter Property="BackgroundColor" Value="Lime"></Setter>
+          </Trigger>
+        </Style.Triggers>
+        <Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
+        <Setter Property="PlaceholderColor" Value="Gray"></Setter>
+        <Setter Property="TextColor" Value="Black"></Setter>
+      </Style>
+
+    </ResourceDictionary>
+  </ContentPage.Resources>
+
+
+
+    <StackLayout Padding="10,5,10,10" >
+
+      <RelativeLayout HeightRequest="200" BackgroundColor="#e6ffe6">
+
+        <Image x:Name="imageName" Aspect="AspectFit" HeightRequest="200" WidthRequest="350" Source="image2.png"
+             
+               HorizontalOptions="Center" RelativeLayout.XConstraint =
+      "{ConstraintExpression Type=RelativeToParent,
+                             Property=X,
+                             Factor=0,
+                             Constant=0}"
+               RelativeLayout.YConstraint =
+      "{ConstraintExpression Type=RelativeToParent,
+                             Property=Y,
+                             Factor=0,
+                             Constant=0}" ></Image>
+        <Button Clicked="btnImageCalled" Image="plus.png" BackgroundColor="Transparent"
+          RelativeLayout.XConstraint =
+      "{ConstraintExpression Type=RelativeToView,ElementName=imageName,
+                             Property=X,
+                             Factor=1,
+                             Constant=280}"
+        RelativeLayout.YConstraint =
+      "{ConstraintExpression Type=RelativeToView,ElementName=imageName,
+                             Property=Y,
+                             Factor=0,
+                             Constant=140}"   />
+      </RelativeLayout>
+      
+      
+      <Entry x:Name="txtName" Placeholder="Product Name" Text="{Binding Name}"></Entry>
+      <BoxView HeightRequest="1" Color="Gray"></BoxView>
+      <Entry x:Name="txtDescription" Placeholder="Product Description" Text="{Binding Desc}" ></Entry>
+      <BoxView HeightRequest="1" Color="Gray"></BoxView>
+      <Entry x:Name="txtPrice" Placeholder="Product Price" Keyboard="Numeric" Text="{Binding Price}"></Entry>
+      <BoxView HeightRequest="1" Color="Gray"></BoxView>
+      <Entry x:Name="txtQuantity" Placeholder="Total Quantity" Keyboard="Numeric" Text="{Binding Qty}"></Entry>
+      <BoxView HeightRequest="1" Color="Gray"></BoxView>
+      <StackLayout Padding="0,20,0,0">
+      <Button x:Name="btnSubmit" Command="{Binding AddItemCommand}" Text="ADD" BackgroundColor="#2DCA71" TextColor="White"  ></Button>
+    </StackLayout>
+    </StackLayout>
+
+</ContentPage>

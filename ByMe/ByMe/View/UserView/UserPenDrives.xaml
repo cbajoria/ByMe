@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ByMe.View.UserView.UserPenDrives" >
+  <ContentPage.ToolbarItems>
+    <ToolbarItem x:Name="MyOrder" Icon="shoppingcart.png"  Clicked="cart_Clicked"></ToolbarItem>
+    <ToolbarItem Text="{Binding CartCount}"></ToolbarItem>
+  </ContentPage.ToolbarItems>
+  <StackLayout>
+    <StackLayout x:Name="stkNoConnection" HorizontalOptions="FillAndExpand" BackgroundColor="White" VerticalOptions="FillAndExpand" IsVisible="False">
+      <Image Source="nointernet.png" HeightRequest="300" WidthRequest="300" ></Image>
+      <Label Text="No Internet Connection" FontAttributes="Bold" FontSize="25" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"> </Label>
+      <Label Text="Please connect to wifi network" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"> </Label>
+      <Button Text="Retry" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="Blue" TextColor="White"></Button>
+    </StackLayout>
+
+    <StackLayout x:Name="stk">
+      <ListView x:Name="menuOption" ItemsSource="{Binding PendriveList}" ItemTapped="itemTapped" RowHeight="125">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <StackLayout Orientation="Horizontal" >
+                <Image Source="{Binding ProductImage}" WidthRequest="125" HeightRequest="120" Aspect="AspectFit"></Image>
+                <StackLayout Padding="0,10,0,0" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                  <Label Text="{Binding Name}" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center"/>
+                  <StackLayout Orientation="Horizontal">
+                    <Label Text="₹" TextColor="Maroon" ></Label>
+                    <Label Text="{Binding Price}" TextColor="Maroon" FontAttributes="Bold" FontSize="15" VerticalOptions="End"/>
+                  </StackLayout>
+                </StackLayout>
+                <StackLayout Padding="0,30,10,0" Orientation="Vertical"  HorizontalOptions="End" VerticalOptions="FillAndExpand">
+                  <Button Text="ADD" Command="{Binding BindingContext.AddCommand, Source={x:Reference menuOption}}" CommandParameter="{Binding .}" BackgroundColor="#2DCA71" Image="cart.png" VerticalOptions="Center" ></Button>
+                </StackLayout>
+              </StackLayout>
+
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+    </StackLayout>
+  </StackLayout>
+</ContentPage>

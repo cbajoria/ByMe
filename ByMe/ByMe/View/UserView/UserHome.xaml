@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ByMe.View.UserView.UserHome" BackgroundColor="White"
+             xmlns:design="clr-namespace:ByMe;assembly=ByMe"
+             xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
+             x:Name="SliderPage">
+  <TabbedPage.ToolbarItems>
+    <ToolbarItem x:Name="Search" Icon="search.png" Clicked="searchClicked" ></ToolbarItem>
+    <ToolbarItem x:Name="MyOrder" Icon="shoppingcart.png" Clicked="cart_Clicked" ></ToolbarItem>
+    <ToolbarItem Text="{Binding CartCount}"></ToolbarItem>
+  </TabbedPage.ToolbarItems>
+  <StackLayout Spacing="20">
+
+    <StackLayout>
+      <cv:CarouselView x:Name="CarouselZoos" HeightRequest="230" ItemsSource="{Binding Zoos}" HorizontalOptions="FillAndExpand">
+        <cv:CarouselView.ItemTemplate>
+          <DataTemplate>
+            <Grid HeightRequest="200">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="Auto"/>
+              </Grid.RowDefinitions>
+              <Image Grid.RowSpan="2" Aspect="Fill" HorizontalOptions="FillAndExpand" HeightRequest="200" VerticalOptions="FillAndExpand" Source="{Binding ImageUrl}"/>
+              <StackLayout Grid.Row="1" BackgroundColor="#80000000" Padding="2">
+                <Image Source="{Binding Name}" HeightRequest="20" HorizontalOptions="Center" VerticalOptions="Center"/>
+              </StackLayout>
+            </Grid>
+          </DataTemplate>
+        </cv:CarouselView.ItemTemplate>
+      </cv:CarouselView>
+    </StackLayout>
+    <ScrollView>
+      <StackLayout BackgroundColor="#e6ffe6" Spacing="20" Padding="20">
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+          <Label Text="Welcome" TextColor="Black" ></Label>
+          <Label x:Name="txtWelcome" TextColor="Black" FontAttributes="Bold" ></Label>
+        </StackLayout>
+
+        <StackLayout BackgroundColor="White" Padding="10">
+          <Label Text="Clothing" TextColor="Black" FontAttributes="Bold"></Label>
+          <ScrollView Orientation="Horizontal"  >
+            <Grid BackgroundColor="White" Padding="10">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="120"></RowDefinition>
+              </Grid.RowDefinitions>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+              </Grid.ColumnDefinitions>
+              <StackLayout Orientation="Horizontal">
+                <StackLayout  Grid.Column="0"  Grid.Row="0"  >
+                  <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnTapped"/>
+                  </StackLayout.GestureRecognizers>
+                  <Image x:Name="image1" Source="kid1" HeightRequest="100" ></Image>
+                  <Label Text="Boy's Coat Suit" TextColor="Black" VerticalOptions="End" HorizontalOptions="Center"></Label>
+                </StackLayout>
+
+                <StackLayout  Grid.Row="0" Grid.Column="1"  >
+                  <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnTapped"/>
+                  </StackLayout.GestureRecognizers>
+                  <Image x:Name="image2" Source="kid2" HeightRequest="100" ></Image>
+                  <Label Text="Party Wear Frock" TextColor="Black" VerticalOptions="End" HorizontalOptions="Center"></Label>
+                </StackLayout>
+
+                <StackLayout  Grid.Column="0"  Grid.Row="2"   >
+                  <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnTapped"/>
+                  </StackLayout.GestureRecognizers>
+                  <Image x:Name="image3"  Source="kid3" HeightRequest="100" ></Image>
+                  <Label Text="Baby Girl Frock" TextColor="Black" VerticalOptions="End" HorizontalOptions="Center"></Label>
+                </StackLayout>
+
+                <StackLayout  Grid.Column="0"  Grid.Row="3"   >
+                  <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnTapped"/>
+                  </StackLayout.GestureRecognizers>
+                  <Image x:Name="image4"  Source="kid4" HeightRequest="100"></Image>
+                  <Label Text="Boy Dress" TextColor="Black"  VerticalOptions="End" HorizontalOptions="Center"></Label>
+                </StackLayout>
+              </StackLayout>
+            </Grid>
+          </ScrollView>
+          <Button Clicked="clothingClicked" Text="View More" FontSize="12" BackgroundColor="Transparent" TextColor="Blue" HorizontalOptions="End"></Button>
+        </StackLayout>
+      
+
+        <StackLayout BackgroundColor="White" Padding="10">
+          <Label Text="Electronics" TextColor="Black" FontAttributes="Bold"></Label>
+          <ScrollView Orientation="Horizontal"  >
+            <Grid BackgroundColor="White" Padding="10">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="120"></RowDefinition>
+              </Grid.RowDefinitions>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+              </Grid.ColumnDefinitions>
+              <StackLayout Orientation="Horizontal">
+                <StackLayout  Grid.Column="0"  Grid.Row="0"  >
+                  <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnTappedE"/>
+                  </StackLayout.GestureRecognizers>
+                  <Image x:Name="image5" Source="lappy1" HeightRequest="100" ></Image>
+                  <Label Text="Boy's Coat Suit" TextColor="Black" VerticalOptions="End" HorizontalOptions="Center"></Label>
+                </StackLayout>
+
+                <StackLayout  Grid.Row="0" Grid.Column="1">
+                  <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnTappedE"/>
+                  </StackLayout.GestureRecognizers>
+                  <Image x:Name="image6" Source="lappy2" HeightRequest="100" ></Image>
+                  <Label Text="Party Wear Frock" TextColor="Black" VerticalOptions="End" HorizontalOptions="Center"></Label>
+                </StackLayout>
+
+                <StackLayout  Grid.Column="0"  Grid.Row="2" >
+                  <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnTappedE"/>
+                  </StackLayout.GestureRecognizers>
+                  <Image x:Name="image7"  Source="lappy3" HeightRequest="100" ></Image>
+                  <Label Text="Baby Girl Frock" TextColor="Black" VerticalOptions="End" HorizontalOptions="Center"></Label>
+                </StackLayout>
+
+                <StackLayout  Grid.Column="0"  Grid.Row="3" >
+                  <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnTappedE"/>
+                  </StackLayout.GestureRecognizers>
+                  <Image x:Name="image8"  Source="lappy4" HeightRequest="100"></Image>
+                  <Label Text="Boy Dress" TextColor="Black"  VerticalOptions="End" HorizontalOptions="Center"></Label>
+                </StackLayout>
+              </StackLayout>
+            </Grid>
+          </ScrollView>
+          <Button Clicked="ElectronicClicked" Text="View More" FontSize="12" BackgroundColor="Transparent" TextColor="Blue" HorizontalOptions="End"></Button>
+        </StackLayout>
+      
+      </StackLayout>
+    </ScrollView>
+  </StackLayout>
+</ContentPage>

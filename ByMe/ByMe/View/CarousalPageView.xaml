@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ByMe.View.CarousalPageView">
+  <CarouselPage.ItemTemplate>
+    <DataTemplate>
+      <ContentPage>
+        <StackLayout BackgroundColor="White" Padding="20" >
+          <StackLayout Padding="0,50,0,0">
+            <Image HorizontalOptions="FillAndExpand" Source="{Binding image}" WidthRequest="150" HeightRequest="150" Aspect="AspectFit"></Image>
+          </StackLayout>
+          <StackLayout Padding="0,30,0,0" HorizontalOptions="Center">
+            <Label Text="{Binding heading}" HorizontalTextAlignment="Center" TextColor="Black" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"></Label>
+          </StackLayout>
+          <StackLayout Padding="0,80,0,0" HorizontalOptions="Center">
+            <Label Text="Tip:" HorizontalOptions="Center" TextColor="Black" ></Label>
+          <Label Text="{Binding detail}"  HorizontalTextAlignment="Center" TextColor="Black"  HorizontalOptions="Center"></Label>
+          </StackLayout>
+          <StackLayout Orientation="Horizontal"  VerticalOptions="EndAndExpand">
+            <Label Text="{Binding startButton}" BackgroundColor="White" HorizontalOptions="Start"></Label>
+            <Image Source="{Binding bulletImage}" HeightRequest="30" WidthRequest="100"  HorizontalOptions="CenterAndExpand" ></Image>
+            <Button Clicked="SkipCalled" Text="{Binding skipButton}" TextColor="Green" BackgroundColor="White"  HorizontalOptions="End"  ></Button>
+          </StackLayout>
+
+        </StackLayout>
+      </ContentPage>
+
+    </DataTemplate>
+  </CarouselPage.ItemTemplate>
+  </CarouselPage>

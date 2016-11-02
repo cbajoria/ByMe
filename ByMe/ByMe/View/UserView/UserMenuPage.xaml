@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ByMe.View.UserView.UserMenuPage" Icon="menuIcon.png" Title="App Pages" BackgroundColor="White"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions">
+  <StackLayout Padding="10">
+    <RelativeLayout HeightRequest="130"  Padding="20,0,0,0" HorizontalOptions="FillAndExpand">
+      <Image Source="relativeback" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+             RelativeLayout.XConstraint =
+      "{ConstraintExpression Type=RelativeToParent,
+                             Property=X,
+                             Factor=0,
+                             Constant=0}"
+             RelativeLayout.YConstraint =
+      "{ConstraintExpression Type=RelativeToParent,
+                             Property=Y,
+                             Factor=0,
+                             Constant=0}"></Image>
+
+      <controls:CircleImage x:Name="imageName"
+                 BorderColor="#2DCA71"
+                 BorderThickness="3"
+                 HeightRequest="100"
+                 HorizontalOptions="CenterAndExpand"
+                 VerticalOptions="CenterAndExpand"
+                 Aspect="AspectFill"
+                 WidthRequest="100"
+                             RelativeLayout.XConstraint =
+      "{ConstraintExpression Type=RelativeToParent,
+                             Property=X,
+                             Factor=0,
+                             Constant=20}"
+             RelativeLayout.YConstraint =
+      "{ConstraintExpression Type=RelativeToParent,
+                             Property=Y,
+                             Factor=0,
+                             Constant=20}"/>
+      <!--<Image x:Name="imageName" Aspect="AspectFit" HeightRequest="140" 
+             HorizontalOptions="Center" RelativeLayout.XConstraint =
+      "{ConstraintExpression Type=RelativeToParent,
+                             Property=X,
+                             Factor=0,
+                             Constant=20}"
+             RelativeLayout.YConstraint =
+      "{ConstraintExpression Type=RelativeToParent,
+                             Property=Y,
+                             Factor=0,
+                             Constant=0}" ></Image>-->
+
+      <Label x:Name="lblName"  TextColor="Black" FontAttributes="Bold" RelativeLayout.XConstraint =
+      "{ConstraintExpression Type=RelativeToView,ElementName=imageName,
+                             Property=X,
+                             Factor=1,
+                             Constant=110}"
+      RelativeLayout.YConstraint =
+      "{ConstraintExpression Type=RelativeToView,ElementName=imageName,
+                             Property=Y,
+                             Factor=0,
+                             Constant=50}" ></Label>
+      <Label x:Name="lblEmail"  TextColor="Black" FontAttributes="Bold" RelativeLayout.XConstraint =
+      "{ConstraintExpression Type=RelativeToView,ElementName=imageName,
+                             Property=X,
+                             Factor=1,
+                             Constant=110}"
+     RelativeLayout.YConstraint =
+      "{ConstraintExpression Type=RelativeToView,ElementName=imageName,
+                             Property=Y,
+                             Factor=0,
+                             Constant=70}" ></Label>
+
+    </RelativeLayout>
+
+    <ListView x:Name="menuOptionListView" ItemsSource="{Binding MenuItems}"  BackgroundColor="White" >
+      <ListView.ItemTemplate>
+        <DataTemplate >
+          <!--<ImageCell ImageSource="{Binding MenuItemIconSource}" Text="{Binding MenuItemTitle}" TextColor="Black"   ></ImageCell>-->
+          <ViewCell>
+            <StackLayout
+            Orientation="Vertical">
+
+              <StackLayout Orientation="Horizontal">
+                <Image Source="{Binding MenuItemIconSource}" WidthRequest="40"/>
+                <Label Text="{Binding MenuItemTitle}" TextColor="Black" FontSize="15" FontAttributes="Bold" VerticalOptions="Center"/>
+
+              </StackLayout>
+            </StackLayout>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+
+    </ListView>
+  </StackLayout>
+</ContentPage>

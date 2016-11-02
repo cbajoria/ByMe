@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ByMe.View.UserView.UserProductDescription" BackgroundColor="White">
+  <ContentPage.ToolbarItems>
+    <ToolbarItem x:Name="MyOrder" Icon="shoppingcart.png"  Clicked="cart_Clicked"></ToolbarItem>
+    <ToolbarItem Text="{Binding CartCount}"></ToolbarItem>
+  </ContentPage.ToolbarItems>
+  <ScrollView>
+    <StackLayout Padding="20" >
+      <Image x:Name="image" HorizontalOptions="Center" WidthRequest="200" HeightRequest="200"/>
+      <Label  x:Name="name" TextColor="Black"  HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+      <StackLayout Orientation="Horizontal">
+        <Label Text="Price:" TextColor="Black" FontAttributes="Bold"  VerticalOptions="Center"></Label>
+        <Label Text="₹" TextColor="Maroon" FontAttributes="Bold" FontSize="18" ></Label>
+        <Label x:Name="price" TextColor="Maroon" HorizontalTextAlignment="Center"  FontSize="18" FontAttributes="Bold"/>
+        <Label  x:Name="instock" TextColor="Green" FontAttributes="Bold" VerticalOptions="End"></Label>
+        <Label Text="(Available Qty:" TextColor="Black" VerticalOptions="End"></Label>
+        <Label x:Name="total" TextColor="Black" VerticalOptions="End"></Label>
+        <Label  Text=")" TextColor="Black" VerticalOptions="End"></Label>
+      </StackLayout>
+      <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand">
+        <Label TextColor="Red" Text="Free Delivery" VerticalOptions="Center"  FontAttributes="Bold" />
+        <Image Source="freedelivery.png" VerticalOptions="Center"></Image>
+      </StackLayout>
+      <Label Text="Cash on Delivery eligible."  TextColor="Black" FontAttributes="Bold"></Label>
+      <!--<StackLayout Orientation="Horizontal">
+        <Label Text="Order Quantity:"  TextColor="Black" FontAttributes="Bold"></Label>
+        --><!--<Entry x:Name="Prqty" Keyboard="Numeric" TextColor="Black" Text="{Binding ProductQuantyInCart}" ></Entry>--><!--
+      </StackLayout>-->
+      <Label Text="Product Description:"  TextColor="Black" FontAttributes="Bold"></Label>
+      <Label  x:Name="desc" TextColor="Black" HorizontalTextAlignment="Start" />
+      <StackLayout Padding="0,30,0,0">
+        <Button Text="ADD TO CART" Command="{Binding AddToCart}" BackgroundColor="#2DCA71"   Image="cart.png" HorizontalOptions="FillAndExpand"></Button>
+      </StackLayout>
+
+    </StackLayout>
+
+  </ScrollView>
+</ContentPage>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ByMe.View.UserView.UserClothingPage"
+              xmlns:local="clr-namespace:ByMe.View.UserView;assembly=ByMe" BackgroundColor="White">
+  <TabbedPage.ToolbarItems>
+    <ToolbarItem x:Name="Search" Icon="search.png" Clicked="searchClicked" ></ToolbarItem>
+    <ToolbarItem x:Name="MyOrder" Icon="shoppingcart.png"  Clicked="cart_Clicked"></ToolbarItem>
+  </TabbedPage.ToolbarItems>
+
+
+  <local:UserWomens Title="Womens" />
+  <local:UserMens Title="Mens"/>
+  <local:UserKids Title="Kids"/>
+
+</TabbedPage>

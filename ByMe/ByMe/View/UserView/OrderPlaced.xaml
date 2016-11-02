@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ByMe.View.UserView.OrderPlaced" BackgroundColor="#e6ffe6" NavigationPage.HasNavigationBar="false">
+  <StackLayout Spacing="40" Padding="30">
+
+    <StackLayout >
+      <Image Source="tick.png" HorizontalOptions="Center"/>
+      <Label Text="ORDER PLACED" HorizontalTextAlignment="Center" TextColor="Black" FontSize="20" FontAttributes="Bold"/>
+      <Label Text="Merchant has accepted your order" HorizontalTextAlignment="Center" TextColor="Black"  ></Label>
+    </StackLayout>
+
+    <StackLayout>
+      <Label Text="Estimated Delivery" FontSize="15" HorizontalTextAlignment="Center" FontAttributes="Bold" TextColor="Black"/>
+      <Label Text="3-4 days" FontSize="18" FontAttributes="Bold" HorizontalTextAlignment="Center" TextColor="Black"/>
+    </StackLayout>
+    <StackLayout> 
+    <Label Text="Your Address :" FontSize="15" HorizontalTextAlignment="Center" TextColor="Black" FontAttributes="Bold"/>
+    <StackLayout HorizontalOptions="Center" Orientation="Horizontal" >
+      <Label x:Name="HouseNo" Text="{Binding HomeNo}"  TextColor="Black"/>
+      <Label x:Name="Street" Text="{Binding Street}" TextColor="Black"/>
+    </StackLayout>
+    <StackLayout HorizontalOptions="Center" Orientation="Horizontal" >
+      <Label x:Name="City" Text="{Binding City}" TextColor="Black"/>
+      <Label x:Name="State" Text="{Binding State}" TextColor="Black"/>
+      <Label x:Name="Pin" Text="{Binding Pincode}" TextColor="Black"/>
+    </StackLayout>
+  </StackLayout>
+    <StackLayout Padding="20,0,0,0">
+    <Button Text="Continue Shopping" BackgroundColor="Transparent" TextColor="Black" HorizontalOptions="FillAndExpand" Clicked="HomeClicked" FontAttributes="Bold"
+            BorderColor="Green" BorderWidth="2" BorderRadius="5" VerticalOptions="FillAndExpand"></Button>
+    </StackLayout>
+    <Label Text="Thankyou For Shopping With Us!!" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Green" VerticalOptions="End"></Label>
+  </StackLayout>
+
+</ContentPage>

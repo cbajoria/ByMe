@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ByMe.View.AdminView.Kids">
+  <StackLayout>
+    <StackLayout x:Name="stkNoConnection" HorizontalOptions="FillAndExpand" BackgroundColor="White" VerticalOptions="FillAndExpand" IsVisible="False">
+      <Image Source="nointernet.png" HeightRequest="300" WidthRequest="300" ></Image>
+      <Label Text="No Internet Connection" FontAttributes="Bold" FontSize="25" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"> </Label>
+      <Label Text="Please connect to wifi network" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"> </Label>
+      <Button Text="Retry" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="Blue" TextColor="White"></Button>
+    </StackLayout>
+
+      <StackLayout x:Name="stk" VerticalOptions="FillAndExpand">
+        <StackLayout VerticalOptions="FillAndExpand">
+          <ListView x:Name="list" ItemsSource="{Binding KidList}" ItemTapped="itemTapped" RowHeight="125">
+            <ListView.ItemTemplate>
+              <DataTemplate>
+                <ViewCell>
+                  <StackLayout Orientation="Horizontal" >
+                    <Image Source="{Binding ProductImage}" WidthRequest="125" HeightRequest="120" Aspect="AspectFit"></Image>
+                    <StackLayout Padding="0,10,0,0" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                      <Label Text="{Binding Name}" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center"/>
+                      <StackLayout Orientation="Horizontal">
+                        <Label Text="₹" TextColor="Maroon" ></Label>
+                        <Label Text="{Binding Price}" TextColor="Maroon" FontAttributes="Bold" FontSize="15" VerticalOptions="End"/>
+                      </StackLayout>
+                    </StackLayout>
+                    <StackLayout Padding="0,30,0,0" Orientation="Vertical"  HorizontalOptions="End" VerticalOptions="FillAndExpand">
+                      <Button Text="ADD" BackgroundColor="#2DCA71" Image="cart.png" VerticalOptions="Center" ></Button>
+                    </StackLayout>
+                  </StackLayout>
+
+                </ViewCell>
+              </DataTemplate>
+            </ListView.ItemTemplate>
+          </ListView>
+        </StackLayout>
+        <StackLayout VerticalOptions="End">
+
+          <Button Clicked="Add" Text="Add a Item" VerticalOptions="End" Image="plus.png" BackgroundColor="#2DCA71"></Button>
+        </StackLayout>
+      </StackLayout>
+    </StackLayout>
+
+</ContentPage>

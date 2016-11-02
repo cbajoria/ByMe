@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ByMe.View.UserView.UserEditProfile"
+             xmlns:local="clr-namespace:ByMe.Util;assembly=ByMe"           
+            BackgroundColor="White">
+
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <Style TargetType="Entry">
+        <Style.Triggers>
+          <Trigger TargetType="Entry" Property="IsFocused" Value="True">
+            <Setter Property="BackgroundColor" Value="#2DCA71"></Setter>
+          </Trigger>
+        </Style.Triggers>
+        <Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
+        <Setter Property="PlaceholderColor" Value="Gray"></Setter>
+        <Setter Property="TextColor" Value="Black"></Setter>
+      </Style>
+      <Style TargetType="Label">
+        <Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
+        <Setter Property="TextColor" Value="Black"></Setter>
+      </Style>
+
+    </ResourceDictionary>
+  </ContentPage.Resources>
+  <StackLayout>
+  <StackLayout x:Name="StkEdit" Padding="10,10,10,10" >
+    <RelativeLayout HeightRequest="200" BackgroundColor="#e6ffe6">
+     
+      <Image x:Name="imageName" Aspect="AspectFit" HeightRequest="200" WidthRequest="350"
+             Source="{Binding _Base64_Img}"
+             HorizontalOptions="Center" RelativeLayout.XConstraint =
+      "{ConstraintExpression Type=RelativeToParent,
+                             Property=X,
+                             Factor=0,
+                             Constant=0}"
+             RelativeLayout.YConstraint =
+      "{ConstraintExpression Type=RelativeToParent,
+                             Property=Y,
+                             Factor=0,
+                             Constant=0}" ></Image>
+      <Button Clicked="btnImageCalled" Image="plus.png" BackgroundColor="Transparent" 
+        RelativeLayout.XConstraint =
+      "{ConstraintExpression Type=RelativeToView,ElementName=imageName,
+                             Property=X,
+                             Factor=1,
+                             Constant=280}"
+      RelativeLayout.YConstraint =
+      "{ConstraintExpression Type=RelativeToView,ElementName=imageName,
+                             Property=Y,
+                             Factor=0,
+                             Constant=140}"   />
+    </RelativeLayout>
+      
+      <Entry x:Name="txtFirstName1" Placeholder="FirstName" Text="{Binding FirstName}"></Entry>
+      <BoxView HeightRequest="1" Color="Gray"></BoxView>
+    <Entry x:Name="txtLastName1" Placeholder="LastName" TextColor="Black" Text="{Binding LastName}"></Entry>
+      <BoxView HeightRequest="1" Color="Gray"></BoxView>
+      <Entry x:Name="txtMob1" Placeholder="Mobile No." Keyboard="Telephone" Text="{Binding Mobile}">
+        <Entry.Triggers>
+        <EventTrigger Event="TextChanged">
+          <local:ValidatePhoneNo/>
+        </EventTrigger>
+        </Entry.Triggers>
+      </Entry>
+      <BoxView HeightRequest="1" Color="Gray"></BoxView>
+ 
+      <StackLayout Padding="0,20,0,0" >
+        <Button x:Name="btnSave" Command="{Binding EditProfileCommand}" Text="Save" BackgroundColor="#2DCA71" TextColor="White"  ></Button>
+      </StackLayout>
+    </StackLayout>
+  </StackLayout>
+</ContentPage>

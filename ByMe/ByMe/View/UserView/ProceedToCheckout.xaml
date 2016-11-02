@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ByMe.View.UserView.ProceedToCheckout" BackgroundColor="#e6ffe6">
+  <ScrollView>
+  <StackLayout Padding="30" Spacing="20">
+    <Label Text="Order Summary:" FontAttributes="Bold" FontSize="20" TextColor="Black"></Label>
+    <StackLayout  BackgroundColor="White" Padding="20">
+    <StackLayout Orientation="Horizontal"> 
+      <Label Text="Total number of items:" FontAttributes="Bold" FontSize="15" TextColor="Black" HorizontalTextAlignment="Center" ></Label>
+      <Label x:Name="quantity" Text="{Binding Totalqty}" FontAttributes="Bold"  FontSize="15"  TextColor="Red" HorizontalTextAlignment="Center"></Label>
+    </StackLayout>
+    <StackLayout Orientation="Horizontal">
+    <Label Text="Total Amount:" FontAttributes="Bold" TextColor="Black" HorizontalTextAlignment="Center"></Label>
+    <Label x:Name="price"  Text="{Binding TotalPrice}" FontAttributes="Bold"  TextColor="Red" HorizontalTextAlignment="Center"></Label>
+    </StackLayout>
+    </StackLayout>
+
+    <Label Text="Shipping Address:" FontAttributes="Bold" FontSize="20" TextColor="Black"></Label>
+    <StackLayout BackgroundColor="White" Padding="20">
+      <Entry Placeholder="Enter House no./Flat No."  TextColor="Black" PlaceholderColor="Gray" Text="{Binding HomeNo}"></Entry>
+    <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" Color="Black"></BoxView>
+      <Entry Placeholder="Street name/Colony"  TextColor="Black" PlaceholderColor="Gray" Text="{Binding Street}"></Entry>
+      <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" Color="Black"></BoxView>
+      <Entry Placeholder="Enter City"  TextColor="Black" PlaceholderColor="Gray" Text="{Binding City}"></Entry>
+    <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" Color="Black"></BoxView>
+      <Entry Placeholder="Enter State"  TextColor="Black" PlaceholderColor="Gray" Text="{Binding State}"></Entry>
+      <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" Color="Black"></BoxView>
+      <Entry Placeholder="Enter Zipcode" Keyboard="Numeric" TextColor="Black" PlaceholderColor="Gray" Text="{Binding Pincode}"></Entry>
+    <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" Color="Black"></BoxView>
+    <Button Text="Save" Command="{Binding SaveAddress}" HorizontalOptions="FillAndExpand" BackgroundColor="#2DCA71"></Button>
+    </StackLayout>
+
+    <Label Text="Payment Information:" FontAttributes="Bold" FontSize="20" TextColor="Black"></Label>
+    <StackLayout  BackgroundColor="White" Padding="20" HorizontalOptions="FillAndExpand">
+      <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand">
+        <Button x:Name="btn1" Clicked="btn1Clicked" Image="radiobtnunchecked.png" Text="  Debit Card" TextColor="Black" BackgroundColor="Transparent" FontAttributes="Bold" VerticalOptions="Center"/>
+        <Image Source="mastercard.png" VerticalOptions="Center"/>
+      </StackLayout>
+  
+      <StackLayout Orientation="Horizontal" >
+        <Button x:Name="btn2"  Clicked="btn2Clicked" Image="radiobtnunchecked.png" Text="  Credit Card" TextColor="Black" BackgroundColor="Transparent"  FontAttributes="Bold"  VerticalOptions="Center"/>
+        <Image Source="visa.png" VerticalOptions="Center"/>
+      </StackLayout>
+    
+      <StackLayout Orientation="Horizontal">
+        <Button x:Name="btn3"  Clicked="btn3Clicked" Image="radiobtnunchecked.png" Text="  Pay Pal" TextColor="Black" BackgroundColor="Transparent"  FontAttributes="Bold"  VerticalOptions="Center"/>
+        <Image Source="paypal.png" VerticalOptions="Center"/>
+       
+      </StackLayout>
+   
+      <StackLayout Orientation="Horizontal">
+        <Button x:Name="btn4"  Clicked="btn4Clicked" Image="radiobtnunchecked.png" Text="  Cash On Delivery" TextColor="Black"  BackgroundColor="Transparent" FontAttributes="Bold"  VerticalOptions="Center"/>
+        <Image Source="cod.png" VerticalOptions="Center"/>
+      
+      </StackLayout>
+  
+    </StackLayout>
+    <Button  Text="Place Order" Clicked="PlaceOrder" BackgroundColor="#2DCA71"  HorizontalOptions="FillAndExpand"></Button>
+  </StackLayout>
+  </ScrollView>
+
+</ContentPage>
